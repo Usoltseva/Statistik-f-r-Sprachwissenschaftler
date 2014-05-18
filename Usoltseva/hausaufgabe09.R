@@ -69,13 +69,19 @@ rt <- read.table("punkt_rt.tab",header=TRUE)
 # Sie von vorneherein etwas behaupten haben.
 
 # Berechnen Sie jetzt den F-Test:
-#print(CODE_HIER)
+
+> subj1 <- rt[rt$subj == "1", "RT" ]
+> subj2 <- rt[rt$subj == "2", "RT" ]
+> f.test <- var.test(subj1, subj2)
+> print(f.test)
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # F-Test "Varianzen Gleich" ist.
 
 # Berechenen Sie den Levene Test:
-#print(CODE_HIER)
+
+> lev.test.alternativ <- leveneTest(rt$RT ~ rt$subj)
+> print(lev.test.alternativ)
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
@@ -84,11 +90,10 @@ rt <- read.table("punkt_rt.tab",header=TRUE)
 # eine Korrektur der Freiheitsgerade macht. Bei homogener Varianz sollten beide
 # Variante ähnliche bzw. (fast) gleiche Ergebnisse liefern. Ist das hier der
 # Fall?
-# two.sample <- CODE_HIER
-# welch <- CODE_HIER
-
-# print(two.sample)
-# print(welch)
+> two.sample <- t.test (subj1,subj2, var.equal=TRUE)
+> welch <- t.test(subj1,subj2)
+> print(two.sample)
+> print(welch)
 
 # Das Ergebnis der verschiedenen Test-Funktionen in R ist übrigens eine Liste.
 # Wir können das ausnutzen, um zu schauen, ob es einen Unterschied zwischen den
@@ -97,10 +102,11 @@ rt <- read.table("punkt_rt.tab",header=TRUE)
 # t.diff <- welch$statistic - two.sample$statistic
 # print(paste("Die Differenz zwischen den beiden t-Werten ist",t.diff,"."))
 
-# Sind die Daten normal verteilt? Wir berechnen Sie den Shapiro Test für erste Versuchsperson:
-# shapiro <- shapiro.test(rt[rt$subj==1,"RT"])
-# 
-# print(shapiro)
+> t.diff <- welch$statistic - two.sample$statistic
+> print(paste("Die Differenzen zwischen den t-Werten ist", t.diff, "."))
+[1] "Die Differenzen zwischen den t-Werten ist 0 ."
+> shapiro <- shapiro.test(rt[rt$subj == 1, "RT"])
+> print(shapiro)
 
 # Wir können auch "Entscheidungen" im Code treffen. Die Syntax dafür ist wie
 # folgt -- die runden und geschweiften Klammern sind alle sehr wichtig!
