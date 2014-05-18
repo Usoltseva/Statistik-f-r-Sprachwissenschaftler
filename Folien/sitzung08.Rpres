@@ -16,7 +16,7 @@ cite_options(tooltip = TRUE
 ```
 
 
-Aufwachen und sich errinnern!
+Aufwachen und sich errinnern!  
 ====================================
 type: section
 
@@ -56,6 +56,8 @@ p-Werte
 
 Das eigentliche Problem mit NHST und p-Werten
 ===============================================
+# der p-Wert sagt nichts darüber, wie wahrscheinlich meine Hypothese ist.
+
 incremental: true
 Welche Frage haben wir gestellt und welche Frage beantworten wir?
 - $P(H_0|E) \neq P(E|H_0)$
@@ -200,6 +202,8 @@ Zusammenfassung der Notation
 | Stichprobe |  $\bar{x}$ | $\hat{\sigma}^2$ | $\hat{\sigma}$   |
 | Population |  $\mu$     | $\sigma^2$       | $\sigma$         |
 
+# empirisch - direkte Sachen aus unserer Studie
+# Schätzungen aus der Stichprobe; Varianz Standartabweichung SIGMA HAT 
 
 Gedächtnistraining 
 ======================================
@@ -399,6 +403,9 @@ Speech Science v. Klinische Linguistik: Größe
 ===============================================
 ```{r}
 t.test(klinisch$height,speech$height)
+
+frequetistische testes messen die wahrscheinlichkeit der häufigkeit.
+wichtig festzustellen, ob der Unterschied signifikant ist, und nicht ob es Unterschied gibt...
 ```
 
 Hausaufgabe
@@ -414,3 +421,9 @@ Bibliography
 bibliography(style="markdown",bulleted=FALSE)
 ```
 </span>
+
+# s = Standartabweichung
+# x_ = Mittelwert
+# n= Probandenzahl, 
+
+#Fausregel: n > 30
