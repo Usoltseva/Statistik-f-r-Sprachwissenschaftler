@@ -88,6 +88,7 @@ gekommen ist oder nicht?
 
 The Signal and The Noise 
 ================================
+# Signal oder Rauschen?
 type:section
 
 
@@ -110,11 +111,13 @@ incremental:true
 
 Statistische Testverfahren
 ==============================
+# !!!
 - Berechnung einer Prüfgröße aufgrund der empirischen Daten
 - Dabei: 
   - Annahmen über die Rohdaten (z.B. Stichprobe zufällig ausgewählt, Rohwerte sind normalverteilt etc.)
   - Annahmen unterscheiden sich je nach Testverfahren
 - Basisfrage: Welche Hypothese ist wahrscheinlicher?
+
 
 Frequentism vs Bayes
 =====================
@@ -132,7 +135,7 @@ Bayes'scher Ansatz
 - wird auch in forensischen Verfahren (z.B. DNA-Beweise, Sprecher-Erkennung) gebraucht, aber ziemlich oft missverstanden.
 - versteht "Wahrscheinlichkeit" als Grad der Glaubwürdigkeit.
 
-Satz von Bayes
+Satz von Bayes: Formel 
 ===================
 incremental:true
 $$P(A|B) = \frac{P(B | A)\, P(A)}{P(B)}$$
@@ -192,7 +195,7 @@ Es geht also um die Frage
 ======================================
 
 wo sich die Prüfgröße im Vergelich zur Verteilung unter der Annahme der Nullhypothese befindet.
-***
+*** # Grafik im Prewiu anschaun
 ```{r, echo=FALSE}
 set.seed(42)
 x <- seq(-3,3,length.out=1000)
@@ -379,7 +382,7 @@ Präzisere Hypothesen können mehr Rauschen aushalten!
 Fehlschlusswarnung!
 ================================
 type: alert
-Daraus, dass die Nullhypothese nicht abgelehnt werden kann, folgt nicht, dass sie stimmt!
+Daraus, dass die Nullhypothese nicht abgelehnt werden kann, folgt nicht, dass sie nicht stimmt!
 
 p-Werte
 ===========
@@ -393,6 +396,7 @@ p-Werte
 
 Das eigentliche Problem mit NHST und p-Werten
 ===============================================
+# wie wahrschlich etwas ist, gegeben dass es Zufall gibt...
 incremental: true
 Welche Frage haben wir gestellt und welche Frage beantworten wir?
 - $P(H_0|E) \neq P(E|H_0)$
